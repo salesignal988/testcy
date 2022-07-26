@@ -1,0 +1,58 @@
+class boardPage {
+    get boardCard () {
+        return cy.get('.vs-c-boards-item');
+    }
+    get orgModal() {
+        return cy.get('.vs-c-modal');
+    }
+    get organizationNameInput() {
+        return this.orgModal.find('input');
+    }
+    
+    get boardTitleNameInput() {
+        return this.orgModal.find('input');
+    }
+
+       get nextBtn() {
+        return cy.get('button[name="next_btn"]')
+    }
+    get actionBtn() {
+        return this.addOrgModal.find('button').last();
+    }
+    get scrumRadioCheck() {
+        return cy.get('.vs-c-radio-check')
+
+        }
+
+        get nextBtn() {
+            return cy.get('button[name="next_btn"]')
+        }
+
+        get closebtn() {
+            return cy.get('.vs-c-close-modal')
+    
+            }
+    
+
+
+    get okBtn() {
+        return this.orgModal.find('button').last()
+    }
+    get deleteBtn() {
+        return cy.get('button').eq(-2);
+    }
+    get yesBtn() {
+        return cy.get('button[name="save-btn"]')
+    }
+    get deeleteMsg() {
+        cy.get('p')
+    }
+    BoardPage(name) {
+        this.boardCard.last().click();
+        this.orgModal.should('be.visible');
+        this.actionBtn.should('be.disabled')
+        this.boardNameInput.type(name)
+        this.nextBtn.click()
+        this.actionBtn.click()
+    }
+}
